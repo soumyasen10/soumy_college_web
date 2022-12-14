@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="jarallax.css">
+    <link rel="stylesheet" href="cursor.css">
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+    <a href="index.html" class="logo"><i class="ri-arrow-left-circle-fill"></i></a>
+    <section>
+        <div class="box">
+            <h2 data-jarallax-element="0 -200">College Campus </h2>
+            <div class="container">
+                <div class="imgBx jarallax">
+                    <img src="bg.1.jpg" class="jarallax-img" alt="">
+                </div>
+                <div class="content" data-jarallax-element="-200 0">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptas, corrupti dicta inventore a assumenda earum perspiciatis iusto sit. Placeat illum assumenda ratione aut natus adipisci veniam est quia magni!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="box">
+            <h2 data-jarallax-element="0 200">College Library</h2>
+            <div class="container">
+                <div class="imgBx jarallax">
+                    <img src="bg.2.jpg" class="jarallax-img" alt="">
+                </div>
+                <div class="content" data-jarallax-element="-200 0">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptas, corrupti dicta inventore a assumenda earum perspiciatis iusto sit. Placeat illum assumenda ratione aut natus adipisci veniam est quia magni!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="box">
+            <h2 data-jarallax-element="0 -200">College Playground</h2>
+            <div class="container">
+                <div class="imgBx jarallax">
+                    <img src="bg.3.jpg" class="jarallax-img" alt="">
+                </div>
+                <div class="content" data-jarallax-element="-200 0">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptas, corrupti dicta inventore a assumenda earum perspiciatis iusto sit. Placeat illum assumenda ratione aut natus adipisci veniam est quia magni!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="box">
+            <h2 data-jarallax-element="0 200">College Garden</h2>
+            <div class="container">
+                <div class="imgBx jarallax">
+                    <img src="bg.4.jpg" class="jarallax-img" alt="">
+                </div>
+                <div class="content" data-jarallax-element="-200 0">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptas, corrupti dicta inventore a assumenda earum perspiciatis iusto sit. Placeat illum assumenda ratione aut natus adipisci veniam est quia magni!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="box">
+            <h2 data-jarallax-element="0 -200">College Hall</h2>
+            <div class="container">
+                <div class="imgBx jarallax">
+                    <img src="bg.5.jpg" class="jarallax-img" alt="">
+                </div>
+                <div class="content" data-jarallax-element="-200 0">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptas, corrupti dicta inventore a assumenda earum perspiciatis iusto sit. Placeat illum assumenda ratione aut natus adipisci veniam est quia magni!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="cursor">
+        <div class="cursor__inner"></div>
+    </div>
+    <script src="jarallax.js"></script>
+    <script src="jarallax-element.js"></script>
+    <script type="text/javascript">
+        jarallax(document.querySelectorAll('.jarallax'), {
+  speed: 0.5,
+});
+    </script>
+
+    <!-- cursor-js -->
+    <script>
+
+        (function () {
+        
+              const link = document.querySelectorAll('nav > .menu-tem');
+              const cursor = document.querySelector('.cursor');
+        
+              const animateit = function (e) {
+                    const span = this.querySelector('span');
+                    const { offsetX: x, offsetY: y } = e,
+                    { offsetWidth: width, offsetHeight: height } = this,
+        
+                    move = 25,
+                    xMove = x / width * (move * 2) - move,
+                    yMove = y / height * (move * 2) - move;
+        
+                    span.style.transform = `translate(${xMove}px, ${yMove}px)`;
+        
+                    if (e.type === 'mouseleave') span.style.transform = '';
+              };
+        
+              const editCursor = e => {
+                    const { clientX: x, clientY: y } = e;
+                    cursor.style.left = x + 'px';
+                    cursor.style.top = y + 'px';
+              };
+        
+              link.forEach(b => b.addEventListener('mousemove', animateit));
+              link.forEach(b => b.addEventListener('mouseleave', animateit));
+              window.addEventListener('mousemove', editCursor);
+        
+        })();
+        
+        </script>
+</body>
+</html>

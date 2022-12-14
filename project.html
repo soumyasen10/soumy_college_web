@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="harrnish" />
+    <title>TEACHERS</title>
+    <link rel="stylesheet" href="style5.css" />
+    <link rel="stylesheet" href="cursor.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+
+    <!-- TweenMax - GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.4/TweenMax.min.js"></script>
+  </head>
+  <body>
+    <a href="index.html" class="logo"><i class="ri-arrow-left-circle-fill"></i></a>
+    <div class="navigation-wrapper">
+      <div class="project-preview-wrapper">
+        <div class="project-preview"></div>
+      </div>
+      <ul class="navigation-list">
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-1" href="#">
+            <span data-text="RAMKRISHNA">RAMKRISHNA</span>
+          </a>
+        </li>
+        <div class="project-overlay"></div>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-2" href="#">
+            <span data-text="KOUSHIK">KOUSHIK</span>
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-3" href="#">
+            <span data-text="PARAMJIT">PARAMJIT</span>
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-4" href="#">
+            <span data-text="DEBDAS">DEBDAS</span>
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-5" href="#">
+            <span data-text="SUMAN">SUMAN</span>
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-6" href="#">
+            <span data-text="SOURAV">SOURAV</span>
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-7" href="#">
+            <span data-text="ANKITA">ANKITA</span>
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-8" href="#">
+            <span data-text="RIYA">RIYA</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="progressbar"></div>
+    <div class="cursor">
+        <div class="cursor__inner"></div>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+        TweenMax.set(".project-preview", { width: 0 });
+
+        var tl = new TimelineLite();
+
+        $(document)
+          .on("mouseover", ".navigation-item", function(evt) {
+            tl = new TimelineLite();
+            tl.to($(".project-preview"), 1, {
+              width: "600px",
+              ease: Expo.easeInOut
+            });
+          })
+          .on("mouseout", ".navigation-item", function(evt) {
+            tl = new TimelineLite();
+            tl.to($(".project-preview"), 0.5, {
+              width: 0,
+              ease: Expo.easeInOut
+            });
+          });
+      });
+
+      $(".navigation-link-1").hover(function() {
+        $(".project-preview").css({ "background-image": "url(vh.1.jpg)" });
+      });
+
+      $(".navigation-link-2").hover(function() {
+        $(".project-preview").css({ "background-image": "url(vh.2.jpg)" });
+      });
+
+      $(".navigation-link-3").hover(function() {
+        $(".project-preview").css({ "background-image": "url(vh.3.jpg)" });
+      });
+
+      $(".navigation-link-4").hover(function() {
+        $(".project-preview").css({ "background-image": "url(vh.4.jpg)" });
+      });
+
+      $(".navigation-link-5").hover(function() {
+        $(".project-preview").css({ "background-image": "url(vh.5.jpg)" });
+      });
+
+      $(".navigation-link-6").hover(function() {
+        $(".project-preview").css({ "background-image": "url(vh.6.jpg)" });
+      });
+
+      $(".navigation-link-7").hover(function() {
+        $(".project-preview").css({ "background-image": "url(vh.7.jpg)" });
+      });
+
+      $(".navigation-link-8").hover(function() {
+        $(".project-preview").css({ "background-image": "url(vh.8.jpg)" });
+      });
+
+      $(window).scroll(function() {
+        var scroll = $(window).scrollTop(),
+          dh = $(document).height(),
+          wh = $(window).height();
+        scrollPercent = (scroll / (dh - wh)) * 100;
+        $(".progressbar").css("height", scrollPercent + "%");
+      });
+    </script>
+
+       <!-- cursor-js -->
+       <script>
+
+        (function () {
+        
+              const link = document.querySelectorAll('nav > .menu-tem');
+              const cursor = document.querySelector('.cursor');
+        
+              const animateit = function (e) {
+                    const span = this.querySelector('span');
+                    const { offsetX: x, offsetY: y } = e,
+                    { offsetWidth: width, offsetHeight: height } = this,
+        
+                    move = 25,
+                    xMove = x / width * (move * 2) - move,
+                    yMove = y / height * (move * 2) - move;
+        
+                    span.style.transform = `translate(${xMove}px, ${yMove}px)`;
+        
+                    if (e.type === 'mouseleave') span.style.transform = '';
+              };
+        
+              const editCursor = e => {
+                    const { clientX: x, clientY: y } = e;
+                    cursor.style.left = x + 'px';
+                    cursor.style.top = y + 'px';
+              };
+        
+              link.forEach(b => b.addEventListener('mousemove', animateit));
+              link.forEach(b => b.addEventListener('mouseleave', animateit));
+              window.addEventListener('mousemove', editCursor);
+        
+        })();
+        
+        </script>
+  </body>
+</html>
